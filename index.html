@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Maker</title>
+    <!-- bootstrap css cdn link  -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <style>
+        #cv-container {
+            width: 796px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- @media print {
+        @page {
+            size: 297mm 210mm;
+            /* landscape */
+            /* you can also specify margins here: */
+            margin: 25mm;
+            margin-right: 45mm;
+            /* for compatibility with both A4 and Letter */
+        }
+    } -->
+
+    <header class="mb-3">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" id="editBtn" onclick="editCv()">Edit</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" id="printBtn" onclick="printPage()">Print</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div id="cv-container" class="mx-auto">
+            <div class="row">
+                <!-- sidebar  -->
+                <div class="col-md-4 bg-light">
+                    <section class="sideBar">
+                        <div class="sidebar-image text-center py-2">
+                            <img class="rounded-circle border border-3 border-primary" width="150px"
+                                src="profile-pic.jpg" alt="">
+                        </div>
+                        <h3 id="name" class="text-center">Minhajul Islam</h3>
+                        <h5 id="title" class="text-muted text-center">Web Developer</h5>
+                        <p id="sidebarContent">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa in cumque
+                            quae earum ea obcaecati
+                            sed
+                            ut voluptates qui architecto, et voluptas doloribus molestias quis vero saepe ipsa ab
+                            ratione
+                            labore. Inventore quaerat magnam pariatur facilis explicabo voluptatibus cumque maxime
+                            molestiae,
+                            itaque porro error nesciunt. Fuga aut aliquid cumque neque.</p>
+                    </section>
+                </div>
+
+                <!-- main content bar  -->
+                <div id="contentBar" class="col-md-8 border-start">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis consequatur aspernatur
+                        placeat
+                        sed minus mollitia sapiente dicta cumque eaque suscipit voluptas ipsam expedita, praesentium
+                        quod,
+                        adipisci ipsum doloribus facere officia rerum? Natus aut fugit expedita vel officiis aliquam
+                        temporibus quos, quas cupiditate eveniet illum itaque. Veniam iure quidem hic saepe dignissimos,
+                        id
+                        perferendis cum deleniti consectetur ab facere nihil assumenda aperiam, ullam mollitia beatae
+                        consequatur reprehenderit culpa numquam ipsa aspernatur excepturi. Esse inventore facilis amet
+                        provident pariatur dignissimos error odit iste corrupti dolor laborum voluptate temporibus earum
+                        illo quisquam animi reiciendis eveniet explicabo, non quod autem repellendus voluptatem omnis.
+                        Magnam.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <script>
+        const editCv = () => {
+            document.getElementById('name').contentEditable = 'true';
+            document.getElementById('title').contentEditable = 'true';
+            document.getElementById('sidebarContent').contentEditable = 'true';
+            document.getElementById('contentBar').contentEditable = 'true';
+        }
+
+        const printPage = () => {
+            var prtContent = document.getElementById("cv-container");
+            var WinPrint = window.open('', '',);
+            WinPrint.document.write(prtContent.innerHTML);
+            WinPrint.document.close();
+            WinPrint.focus();
+            WinPrint.print();
+            WinPrint.close();
+        }
+    </script>
+</body>
+
+</html>
